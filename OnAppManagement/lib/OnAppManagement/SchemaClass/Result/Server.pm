@@ -60,6 +60,21 @@ __PACKAGE__->table("server");
   default_value: 'building'
   is_nullable: 0
 
+=head2 cpus
+
+  data_type: 'int'
+  is_nullable: 0
+
+=head2 disk_size
+
+  data_type: 'int'
+  is_nullable: 0
+
+=head2 memory_size
+
+  data_type: 'int'
+  is_nullable: 0
+
 =cut
 
 __PACKAGE__->add_columns(
@@ -71,6 +86,12 @@ __PACKAGE__->add_columns(
   { data_type => "text", is_nullable => 0 },
   "status",
   { data_type => "text", default_value => "building", is_nullable => 0 },
+  "cpus",
+  { data_type => "int", is_nullable => 0 },
+  "disk_size",
+  { data_type => "int", is_nullable => 0 },
+  "memory_size",
+  { data_type => "int", is_nullable => 0 },
 );
 
 =head1 PRIMARY KEY
@@ -118,8 +139,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-13 16:39:25
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:vMDUNAwbK1L9Zh5vJYFUVw
+# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-13 18:56:18
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:QwfaYqnGAKoI5o3fEmDa3Q
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

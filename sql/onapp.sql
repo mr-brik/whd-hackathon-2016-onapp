@@ -24,6 +24,9 @@ CREATE TABLE server (
   template_id INT NOT NULL,
   label TEXT NOT NULL,
   status TEXT NOT NULL DEFAULT 'building',
+  cpus INT NOT NULL,
+  disk_size INT NOT NULL,
+  memory_size INT NOT NULL,
   FOREIGN KEY(template_id) REFERENCES template(id)
 );
 
