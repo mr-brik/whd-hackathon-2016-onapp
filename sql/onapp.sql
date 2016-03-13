@@ -26,11 +26,11 @@ CREATE TABLE server (
   FOREIGN KEY(template_id) REFERENCES template(id)
 );
 
-DROP TABLE IF EXISTS user;
-CREATE TABLE user (
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
   id INT PRIMARY KEY,
   email TEXT NOT NULL UNIQUE
-)
+);
 
 DROP TABLE IF EXISTS user_server_link;
 CREATE TABLE user_server_link (
