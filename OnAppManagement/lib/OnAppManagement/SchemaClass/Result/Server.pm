@@ -54,6 +54,12 @@ __PACKAGE__->table("server");
   data_type: 'text'
   is_nullable: 0
 
+=head2 status
+
+  data_type: 'text'
+  default_value: 'building'
+  is_nullable: 0
+
 =cut
 
 __PACKAGE__->add_columns(
@@ -63,6 +69,8 @@ __PACKAGE__->add_columns(
   { data_type => "int", is_foreign_key => 1, is_nullable => 0 },
   "label",
   { data_type => "text", is_nullable => 0 },
+  "status",
+  { data_type => "text", default_value => "building", is_nullable => 0 },
 );
 
 =head1 PRIMARY KEY
@@ -110,8 +118,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-13 15:35:17
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:UKe5hKboW0bSdouIQ13Hfw
+# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-13 16:39:25
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:vMDUNAwbK1L9Zh5vJYFUVw
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

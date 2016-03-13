@@ -23,6 +23,7 @@ CREATE TABLE server (
   id INT PRIMARY KEY,
   template_id INT NOT NULL,
   label TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'building',
   FOREIGN KEY(template_id) REFERENCES template(id)
 );
 
