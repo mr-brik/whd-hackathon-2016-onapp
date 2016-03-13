@@ -1,4 +1,4 @@
-package OnAppManagement::Model::OnAppLocalDB;
+package OnAppManagement::Model::LocalStorage;
 
 use strict;
 use base 'Catalyst::Model::DBIC::Schema';
@@ -15,7 +15,7 @@ __PACKAGE__->config(
 
 =head1 NAME
 
-OnAppManagement::Model::OnAppLocalDB - Catalyst DBIC Schema Model
+OnAppManagement::Model::LocalStorage - Catalyst DBIC Schema Model
 
 =head1 SYNOPSIS
 
