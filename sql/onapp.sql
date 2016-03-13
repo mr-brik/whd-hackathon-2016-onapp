@@ -27,6 +27,8 @@ CREATE TABLE server (
   cpus INT NOT NULL,
   disk_size INT NOT NULL,
   memory_size INT NOT NULL,
+  ipv4_address TEXT NOT NULL,
+  initial_root_password TEXT NOT NULL,
   FOREIGN KEY(template_id) REFERENCES template(id)
 );
 
