@@ -10,9 +10,8 @@ CREATE TABLE template (
   id INT PRIMARY KEY,
   label TEXT NOT NULL,
   location_id INT NOT NULL,
-  onapp_id INT NOT NULL UNIQUE,
-  min_disk_size INT NOT NULL,
-  min_memory_size INT NOT NULL,
+  min_disk_size INT DEFAULT 10,
+  min_memory_size INT DEFAULT 256,
   operating_system TEXT NOT NULL,
   operating_system_distro TEXT NOT NULL,
   FOREIGN KEY(location_id) REFERENCES location(id)
@@ -21,6 +20,7 @@ CREATE TABLE template (
 DROP TABLE IF EXISTS server;
 CREATE TABLE server (
   id INT PRIMARY KEY,
+  onapp_id TEXT NOT NULL UNIQUE,
   template_id INT NOT NULL,
   label TEXT NOT NULL,
   status TEXT NOT NULL DEFAULT 'building',

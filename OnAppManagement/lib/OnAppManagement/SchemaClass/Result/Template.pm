@@ -54,20 +54,17 @@ __PACKAGE__->table("template");
   is_foreign_key: 1
   is_nullable: 0
 
-=head2 onapp_id
-
-  data_type: 'int'
-  is_nullable: 0
-
 =head2 min_disk_size
 
   data_type: 'int'
-  is_nullable: 0
+  default_value: 10
+  is_nullable: 1
 
 =head2 min_memory_size
 
   data_type: 'int'
-  is_nullable: 0
+  default_value: 256
+  is_nullable: 1
 
 =head2 operating_system
 
@@ -88,12 +85,10 @@ __PACKAGE__->add_columns(
   { data_type => "text", is_nullable => 0 },
   "location_id",
   { data_type => "int", is_foreign_key => 1, is_nullable => 0 },
-  "onapp_id",
-  { data_type => "int", is_nullable => 0 },
   "min_disk_size",
-  { data_type => "int", is_nullable => 0 },
+  { data_type => "int", default_value => 10, is_nullable => 1 },
   "min_memory_size",
-  { data_type => "int", is_nullable => 0 },
+  { data_type => "int", default_value => 256, is_nullable => 1 },
   "operating_system",
   { data_type => "text", is_nullable => 0 },
   "operating_system_distro",
@@ -111,20 +106,6 @@ __PACKAGE__->add_columns(
 =cut
 
 __PACKAGE__->set_primary_key("id");
-
-=head1 UNIQUE CONSTRAINTS
-
-=head2 C<onapp_id_unique>
-
-=over 4
-
-=item * L</onapp_id>
-
-=back
-
-=cut
-
-__PACKAGE__->add_unique_constraint("onapp_id_unique", ["onapp_id"]);
 
 =head1 RELATIONS
 
@@ -159,8 +140,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-13 15:35:17
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:rCgCoZg9CnhiEKcMbpL9EQ
+# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-13 20:26:19
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:KEoAj2WQ6TfzEwSgwQaM8g
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
