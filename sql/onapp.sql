@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS location;
 CREATE TABLE location (
   id INT PRIMARY KEY,
   label TEXT NOT NULL,
-  hypervisor_group_id INT NOT NULL UNIQUE
+  hypervisor_group_id INT NOT NULL
 );
 
 DROP TABLE IF EXISTS template;
