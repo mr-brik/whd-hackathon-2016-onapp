@@ -1,1 +1,21 @@
 <h1>Create Virtual Servers</h1>
+
+<body>
+
+<form>
+  Label:<br>
+  <input type="text" name="label"><br>
+  CPU:<br>
+  <input type="text" name="cpu"><br>
+  memory:<br>
+  <input type="text" name="memory"><br>
+  Disk:<br>
+  <input type="text" name="disk"><br>
+</form>
+
+
+[%- FOREACH l IN location -%]
+  <option value="[%l.hypervisor_group_id%]">[%l.label%]</option>
+[% END %]
+
+</body>
