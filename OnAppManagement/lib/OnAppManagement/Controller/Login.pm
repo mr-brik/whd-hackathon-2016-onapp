@@ -36,7 +36,8 @@ sub index : Path : Args(0) {
     if ( $c->authenticate( { email => $username, } ) ) {
 
       # If successful, then let them use the application
-      $c->response->redirect( $c->uri_for( $c->controller('VirtualMachines')->action('list') ) );
+      $c->response->redirect(
+        $c->uri_for( $c->controller('VirtualMachines')->action_for('list') ) );
       return;
     }
     else {

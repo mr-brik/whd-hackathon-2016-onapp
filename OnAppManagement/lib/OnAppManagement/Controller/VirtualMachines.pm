@@ -33,7 +33,7 @@ List logic
 
 =cut
 
-sub list : Path : Args(0) {
+sub list : Local : Args(0) {
   my ( $self, $c ) = @_;
   $c->stash( template => 'virtual_machines/list.tt' );
 }
@@ -44,7 +44,7 @@ Creation logic
 
 =cut
 
-sub create : Path : Args(0) {
+sub create : Local : Args(0) {
   my ( $self, $c ) = @_;
   $c->stash( template => 'virtual_machines/create.tt' );
 }
