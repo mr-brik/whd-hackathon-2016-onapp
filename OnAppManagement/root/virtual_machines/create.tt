@@ -1,39 +1,88 @@
 [%- content_html=BLOCK -%]
 <h1>Create Virtual Servers</h1>
-
 <form>
-  Label:<br>
-  <input type="text" name="label" value="[% label %]" ><br>
-  CPU:<br>
-  <input type="text" name="cpu" value="[%cpu%]"><br>
-  memory:<br>
-  <input type="text" name="memory" value="[%memory%]"><br>
-  Disk:<br>
-  <input type="text" name="disk" value="[%disk%]"><br>
+ <table align="center">
 
-  Location: <br>
-  <select>
-  [%- FOREACH l IN location -%]
-    [% IF (l.id == location_id) %]
-    <option value="[%l.id%]" name="location_id" selected>[%l.label%]</option>
-    [% ELSE %]
-    <option value="[%l.id%]" name="location_id">[%l.label%]</option>
-    [% END %]
-  [% END %]
-  </select>
-  
-  <input type="submit" name="location" value="Location"><br>
+  <tr>
+    <td align="right" >Label:</td>
+    <td align="left"><input type="text" name="label" value="[% label %]"></td>
+  </tr>
 
-  [% IF (template.size > 0) %]
-  Template: <br>
-  <select>
-  [%- FOREACH t IN template -%]
-    <option value="[%t.id%]" name="template_option">[%t.label%]</option>
+  <tr>
+    <td align="right">CPU:</td>
+    <td align="left"> 
+  	<select name="cpu">
+    	<option value="1" [%IF cpu == 1 %]selected[%END%]>1</option>
+    	<option value="2" [%IF cpu == 2 %]selected[%END%]>2</option>
+    	<option value="3" [%IF cpu == 3 %]selected[%END%]>3</option>
+    	<option value="4" [%IF cpu == 4 %]selected[%END%]>4</option>
+  	</select>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="right">Memory: </td>
+    <td align="left">
+      <select name = "memory">
+        <option value="256" [%IF memory == 256 %]selected[%END%] >256</option>
+        <option value="512" [%IF memory == 512 %]selected[%END%]>512</option>
+        <option value="768" [%IF memory == 768 %]selected[%END%]>768</option>
+        <option value="1024" [%IF memory == 1024 %]selected[%END%]>1024</option>
+      </select><br>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="right">Disk: </td>
+    <td>
+      <select name = "disk">
+        <option value="10" [%IF disk == 10 %]selected[%END%] >10</option>
+        <option value="20" [%IF disk == 20 %]selected[%END%]>20</option>
+        <option value="30" [%IF disk == 30 %]selected[%END%]>30</option>
+        <option value="40" [%IF disk == 40 %]selected[%END%]>40</option>
+      </select><br>
+     </td>
+  </tr>
+
+  <tr>
+    <td align="right"> Location: </td>
+    <td align="left">
+      <select name="location_id">
+      [%- FOREACH l IN location -%]
+        [% IF (l.id == location_id) %]
+        <option value="[%l.id%]" selected>[%l.label%]</option>
+        [% ELSE %]
+        <option value="[%l.id%]" >[%l.label%]</option>
+        [% END %]
+      [% END %]
+      </select>
+    </td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td align="left">  <input type="submit" name="location" value="Location"></td>
+  </tr>
+
+  [% IF (templates.size > 0) %]
+  <tr>
+    <td align="right">Template: </td>
+    <td align="left">
+      <select name ="template_option">
+      [%- FOREACH t IN templates -%]
+        <option value="[%t.id%]">[%t.label%]</option>
+      [% END %]
+      </select>
+    </td>
+  </tr>
+
+  <tr>
+     <td></td>
+     <td align="left"> <input type="submit" name="create" value="Create"></td>
+  </tr>
   [% END %]
-  </select>
-  
-  <input type="submit" name="create" value="Create"><br>
-  [% END %]
+</table> 
 </form>
+
 [%- END -%]
 [%- INCLUDE "_pretty_content.tt" title = "Create Virtual Servers"  -%]
