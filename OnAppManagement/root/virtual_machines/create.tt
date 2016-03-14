@@ -4,18 +4,36 @@
 
 <form>
   Label:<br>
-  <input type="text" name="label"><br>
+  <input type="text" name="label" value="[% label %]" ><br>
   CPU:<br>
-  <input type="text" name="cpu"><br>
+  <input type="text" name="cpu" value="[%cpu%]"><br>
   memory:<br>
-  <input type="text" name="memory"><br>
+  <input type="text" name="memory" value="[%memory%]"><br>
   Disk:<br>
-  <input type="text" name="disk"><br>
+  <input type="text" name="disk" value="[%disk%]"><br>
+
+  Location: <br>
+  <select>
+  [%- FOREACH l IN location -%]
+    [% IF (l.id == location_id) %]
+    <option value="[%l.id%]" name="location_id" selected>[%l.label%]</option>
+    [% ELSE %]
+    <option value="[%l.id%]" name="location_id">[%l.label%]</option>
+    [% END %]
+  [% END %]
+  </select>
+  
+  <input type="submit" name="location" value="Location"><br>
+
+  [% IF (template.size > 0) %]
+  Template: <br>
+  <select>
+  [%- FOREACH t IN template -%]
+    <option value="[%t.id%]" name="template_option">[%t.label%]</option>
+  [% END %]
+  </select>
+  
+  <input type="submit" name="create" value="Create"><br>
+  [% END %]
 </form>
-
-
-[%- FOREACH l IN location -%]
-  <option value="[%l.hypervisor_group_id%]">[%l.label%]</option>
-[% END %]
-
 </body>
