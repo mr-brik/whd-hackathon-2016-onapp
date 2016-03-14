@@ -7,9 +7,17 @@ sub get_status {
 	my $link = "virtual_machines/$server_id";
 
 	my $json = $self->call($link);
-	my $status = $json->[0]->{booted_type};
+	my $server_details = {
+		status => $json->{booted_type},
+		label => $json->{label},
+		cpus => $json->{cpus},
+		disk_size => $json->{total_disk_size},
+		memory_size => $json->{memory},
+		initial_root_password => $json->{inital_root_password},
+		template_id => $json->{template_id},
+	};
 
-	return $status;
+	return $server_details;
 }
 
 1;
