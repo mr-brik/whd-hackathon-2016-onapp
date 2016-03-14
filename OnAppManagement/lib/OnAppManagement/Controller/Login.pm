@@ -31,7 +31,6 @@ sub index : Path : Args(0) {
 
   # If the username and password values were found in form
   if ($username) {
-    $c->log->debug("Value of auth is: ");
 
     # Attempt to log the user in
     if ( $c->authenticate( { email => $username, } ) ) {
@@ -50,7 +49,7 @@ sub index : Path : Args(0) {
     $c->stash( error_msg => "Empty username or password." )
       unless ( $c->user_exists );
   }
-
+  $c->stash( users => [ $c->model('LocalStorage::User')->all ] );
   # If either of above don't work out, send to the login page
   $c->stash( template => 'login.tt' );
 }
