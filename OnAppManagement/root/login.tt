@@ -1,0 +1,25 @@
+[% META title = 'Login' %]
+
+[% IF users.size == 0 %]
+<h2>No users configured.</h2>
+[% ELSE %]
+<!-- Login form -->
+<form method="post" action="[% c.uri_for('/login') %]">
+  <table>
+    <tr>
+      <td>Username: </td>
+
+      <td>
+        <select name="username">
+        [%- FOREACH u IN users -%]
+          <option value=[%- u.email | html -%]>[%- u.email | html -%]</option>
+        [%- END -%]
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" name="submit" value="Submit" /></td>
+    </tr>
+  </table>
+</form>
+[% END %]
