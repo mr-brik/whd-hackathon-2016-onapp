@@ -35,6 +35,20 @@ sub index :Path :Args(0) {
     #$c->response->body( $c->welcome_message );
 }
 
+=head2 hello
+
+The hello page (/hello)
+
+=cut
+
+sub hello :Local :Args(0) {
+    my ( $self, $c ) = @_;
+    # Hello World
+    $c->stash( 'template' => 'hello.tt' );
+    #$c->response->body( $c->welcome_message );
+}
+
+
 =head2 default
 
 Standard 404 error page
