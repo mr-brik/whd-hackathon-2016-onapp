@@ -57,13 +57,11 @@ __PACKAGE__->table("template");
 =head2 min_disk_size
 
   data_type: 'int'
-  default_value: 10
   is_nullable: 1
 
 =head2 min_memory_size
 
   data_type: 'int'
-  default_value: 256
   is_nullable: 1
 
 =head2 operating_system
@@ -86,9 +84,9 @@ __PACKAGE__->add_columns(
   "location_id",
   { data_type => "int", is_foreign_key => 1, is_nullable => 0 },
   "min_disk_size",
-  { data_type => "int", default_value => 10, is_nullable => 1 },
+  { data_type => "int", is_nullable => 1 },
   "min_memory_size",
-  { data_type => "int", default_value => 256, is_nullable => 1 },
+  { data_type => "int", is_nullable => 1 },
   "operating_system",
   { data_type => "text", is_nullable => 0 },
   "operating_system_distro",
@@ -140,8 +138,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-13 20:26:19
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:KEoAj2WQ6TfzEwSgwQaM8g
+# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-14 09:10:47
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:XByEA0xQmbJSG3/cDpt5Qg
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

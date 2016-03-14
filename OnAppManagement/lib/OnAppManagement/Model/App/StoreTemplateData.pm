@@ -43,7 +43,6 @@ sub run {
   foreach my $td (@$template_data) {
     my $location_id = $hypervisor_location_map{ $td->{'hypervisor_group_id'} };
     next if not $location_id;
-  use Data::Dumper; warn Dumper $td;
     $td->{'location_id'} = $location_id;
     delete $td->{'hypervisor_group_id'};
     $schema->resultset('Template')->create($td);

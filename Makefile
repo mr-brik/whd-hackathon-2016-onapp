@@ -15,5 +15,8 @@ create-db-snapshot:
 restore-db-from-snapshot: clean-db
 	sqlite3 db/onapp.sqlite3 < db-snapshots/onapp.sql
 
+regenerate-schema:
+	./OnAppManagement/script/onappmanagement_create_localdb_schema.sh
+
 test:
 	prove -IOnAppManagement/lib  OnAppManagement/t/*.t

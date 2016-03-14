@@ -10,8 +10,8 @@ CREATE TABLE template (
   id INT PRIMARY KEY,
   label TEXT NOT NULL,
   location_id INT NOT NULL,
-  min_disk_size INT DEFAULT 10,
-  min_memory_size INT DEFAULT 256,
+  min_disk_size INT,
+  min_memory_size INT,
   operating_system TEXT NOT NULL,
   operating_system_distro TEXT NOT NULL,
   FOREIGN KEY(location_id) REFERENCES location(id)
