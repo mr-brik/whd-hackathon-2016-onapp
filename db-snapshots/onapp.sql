@@ -107,8 +107,8 @@ INSERT INTO "template" VALUES(47,'Ubuntu 15.04 x64',3,5,256,'linux','ubuntu');
 INSERT INTO "template" VALUES(37,'Windows 2008 Standart R2 x64 kvm_virtio',3,20,1024,'windows','2008');
 INSERT INTO "template" VALUES(48,'Windows 2012 Standart R2 x64 kvm_virtio',3,20,1024,'windows','2012');
 CREATE TABLE server (
-  id INT PRIMARY KEY,
-  onapp_id TEXT NOT NULL UNIQUE,
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  onapp_id TEXT NOT NULL,
   template_id INT NOT NULL,
   label TEXT NOT NULL,
   status TEXT NOT NULL DEFAULT 'building',
@@ -120,22 +120,23 @@ CREATE TABLE server (
   FOREIGN KEY(template_id) REFERENCES template(id)
 );
 CREATE TABLE `user` (
-  id INT PRIMARY KEY,
-  email TEXT NOT NULL UNIQUE
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  email TEXT NOT NULL
 );
-INSERT INTO "user" VALUES(NULL,'han@example.org');
-INSERT INTO "user" VALUES(NULL,'luke@example.org');
-INSERT INTO "user" VALUES(NULL,'leia@example.org');
-INSERT INTO "user" VALUES(NULL,'kylo@example.org');
-INSERT INTO "user" VALUES(NULL,'rey@example.org');
-INSERT INTO "user" VALUES(NULL,'finn@example.org');
-INSERT INTO "user" VALUES(NULL,'poe@example.org');
+INSERT INTO "user" VALUES(1,'han@example.org');
+INSERT INTO "user" VALUES(2,'luke@example.org');
+INSERT INTO "user" VALUES(3,'leia@example.org');
+INSERT INTO "user" VALUES(4,'kylo@example.org');
+INSERT INTO "user" VALUES(5,'rey@example.org');
+INSERT INTO "user" VALUES(6,'finn@example.org');
+INSERT INTO "user" VALUES(7,'poe@example.org');
 CREATE TABLE user_server_link (
-  id INT PRIMARY KEY,
   user_id INT NOT NULL,
   server_id INT NOT NULL,
   UNIQUE(user_id, server_id),
   FOREIGN KEY(user_id) REFERENCES user(id),
   FOREIGN KEY(server_id) REFERENCES server(id)
 );
+DELETE FROM sqlite_sequence;
+INSERT INTO "sqlite_sequence" VALUES('user',7);
 COMMIT;
