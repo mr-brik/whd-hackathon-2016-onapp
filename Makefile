@@ -1,7 +1,7 @@
 .PHONY: test reset-db clean-db reset-db populate-db-templates create-db-snapshot restore-db-from-snapshot
 
 clean-db:
-	rm db/*.sqlite3
+	rm -f db/*.sqlite3
 
 reset-db: clean-db
 	sqlite3 db/onapp.sqlite3 < sql/onapp.sql
