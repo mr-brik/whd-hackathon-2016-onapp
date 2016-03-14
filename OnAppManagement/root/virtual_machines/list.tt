@@ -1,5 +1,5 @@
 [%- content_html=BLOCK -%]
-<h1>List Virtual Servers [%- IF c.user_exists -%](as [%- c.user.email | html -%])[%- END -%]</h1>
+<h1>List Virtual Servers</h1>
 [% IF servers.size == 0 %]
 <p>You have no Virtual servers. Why not create one?</p>
 [% ELSE %]
