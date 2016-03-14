@@ -12,8 +12,8 @@ CREATE TABLE template (
   id INT PRIMARY KEY,
   label TEXT NOT NULL,
   location_id INT NOT NULL,
-  min_disk_size INT DEFAULT 10,
-  min_memory_size INT DEFAULT 256,
+  min_disk_size INT,
+  min_memory_size INT,
   operating_system TEXT NOT NULL,
   operating_system_distro TEXT NOT NULL,
   FOREIGN KEY(location_id) REFERENCES location(id)
@@ -123,6 +123,13 @@ CREATE TABLE `user` (
   id INT PRIMARY KEY,
   email TEXT NOT NULL UNIQUE
 );
+INSERT INTO "user" VALUES(NULL,'han@example.org');
+INSERT INTO "user" VALUES(NULL,'luke@example.org');
+INSERT INTO "user" VALUES(NULL,'leia@example.org');
+INSERT INTO "user" VALUES(NULL,'kylo@example.org');
+INSERT INTO "user" VALUES(NULL,'rey@example.org');
+INSERT INTO "user" VALUES(NULL,'finn@example.org');
+INSERT INTO "user" VALUES(NULL,'poe@example.org');
 CREATE TABLE user_server_link (
   id INT PRIMARY KEY,
   user_id INT NOT NULL,

@@ -41,6 +41,7 @@ sub run {
     $hypervisor_location_map{ $ld->{'hypervisor_group_id'} } = $l->id;
   }
   foreach my $td (@$template_data) {
+    next if not $td->{'hypervisor_group_id'};
     my $location_id = $hypervisor_location_map{ $td->{'hypervisor_group_id'} };
     next if not $location_id;
     $td->{'location_id'} = $location_id;

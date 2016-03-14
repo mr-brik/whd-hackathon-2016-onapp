@@ -5,6 +5,7 @@ clean-db:
 
 reset-db: clean-db
 	sqlite3 db/onapp.sqlite3 < sql/onapp.sql
+	sqlite3 db/onapp.sqlite3 < sql/static/onapp.user.sql
 
 populate-db-templates: reset-db
 	./OnAppManagement/script/onappmanagement_populate_storage_templata_data.pl
