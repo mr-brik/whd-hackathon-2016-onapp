@@ -38,11 +38,6 @@ __PACKAGE__->table("user_server_link");
 
 =head1 ACCESSORS
 
-=head2 id
-
-  data_type: 'int'
-  is_nullable: 0
-
 =head2 user_id
 
   data_type: 'int'
@@ -58,25 +53,11 @@ __PACKAGE__->table("user_server_link");
 =cut
 
 __PACKAGE__->add_columns(
-  "id",
-  { data_type => "int", is_nullable => 0 },
   "user_id",
   { data_type => "int", is_foreign_key => 1, is_nullable => 0 },
   "server_id",
   { data_type => "int", is_foreign_key => 1, is_nullable => 0 },
 );
-
-=head1 PRIMARY KEY
-
-=over 4
-
-=item * L</id>
-
-=back
-
-=cut
-
-__PACKAGE__->set_primary_key("id");
 
 =head1 UNIQUE CONSTRAINTS
 
@@ -127,8 +108,8 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-13 15:35:17
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:qMSrC3mMUmZpORg3DzzafQ
+# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-14 11:43:54
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:BdBYlU9KGTTOAQQSTI8b1A
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

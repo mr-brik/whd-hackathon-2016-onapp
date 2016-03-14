@@ -40,7 +40,8 @@ __PACKAGE__->table("server");
 
 =head2 id
 
-  data_type: 'int'
+  data_type: 'integer'
+  is_auto_increment: 1
   is_nullable: 0
 
 =head2 onapp_id
@@ -94,7 +95,7 @@ __PACKAGE__->table("server");
 
 __PACKAGE__->add_columns(
   "id",
-  { data_type => "int", is_nullable => 0 },
+  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
   "onapp_id",
   { data_type => "text", is_nullable => 0 },
   "template_id",
@@ -126,20 +127,6 @@ __PACKAGE__->add_columns(
 =cut
 
 __PACKAGE__->set_primary_key("id");
-
-=head1 UNIQUE CONSTRAINTS
-
-=head2 C<onapp_id_unique>
-
-=over 4
-
-=item * L</onapp_id>
-
-=back
-
-=cut
-
-__PACKAGE__->add_unique_constraint("onapp_id_unique", ["onapp_id"]);
 
 =head1 RELATIONS
 
@@ -174,8 +161,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-13 20:26:19
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:HzPuzLKw0WFv13SkS+qT6A
+# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-14 11:43:54
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:XJH/29DB+TnfpRz1OIviBw
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

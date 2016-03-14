@@ -34,13 +34,12 @@ CREATE TABLE server (
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  id INT PRIMARY KEY,
-  email TEXT NOT NULL UNIQUE
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  email TEXT NOT NULL
 );
 
 DROP TABLE IF EXISTS user_server_link;
 CREATE TABLE user_server_link (
-  id INT PRIMARY KEY,
   user_id INT NOT NULL,
   server_id INT NOT NULL,
   UNIQUE(user_id, server_id),

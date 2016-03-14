@@ -40,7 +40,8 @@ __PACKAGE__->table("user");
 
 =head2 id
 
-  data_type: 'int'
+  data_type: 'integer'
+  is_auto_increment: 1
   is_nullable: 0
 
 =head2 email
@@ -52,7 +53,7 @@ __PACKAGE__->table("user");
 
 __PACKAGE__->add_columns(
   "id",
-  { data_type => "int", is_nullable => 0 },
+  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
   "email",
   { data_type => "text", is_nullable => 0 },
 );
@@ -68,20 +69,6 @@ __PACKAGE__->add_columns(
 =cut
 
 __PACKAGE__->set_primary_key("id");
-
-=head1 UNIQUE CONSTRAINTS
-
-=head2 C<email_unique>
-
-=over 4
-
-=item * L</email>
-
-=back
-
-=cut
-
-__PACKAGE__->add_unique_constraint("email_unique", ["email"]);
 
 =head1 RELATIONS
 
@@ -101,8 +88,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-13 15:35:17
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:dfv+f2KselnUDZHNjVJB/A
+# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-14 11:43:54
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:I5bEeaoOn7/kW1SNc9IdSA
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
