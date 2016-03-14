@@ -19,8 +19,8 @@ CREATE TABLE template (
 
 DROP TABLE IF EXISTS server;
 CREATE TABLE server (
-  id INT PRIMARY KEY,
-  onapp_id TEXT NOT NULL UNIQUE,
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  onapp_id TEXT NOT NULL,
   template_id INT NOT NULL,
   label TEXT NOT NULL,
   status TEXT NOT NULL DEFAULT 'building',

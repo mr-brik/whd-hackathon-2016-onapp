@@ -10,6 +10,9 @@ reset-db: clean-db
 populate-db-templates: reset-db
 	./OnAppManagement/script/onappmanagement_populate_storage_templata_data.pl
 
+dummy-data:
+	sqlite3 db/onapp.sqlite3 < sql/static/onapp.dummy.sql
+
 create-db-snapshot:
 	sqlite3  db/onapp.sqlite3 .dump | tee db-snapshots/onapp.sql
 
