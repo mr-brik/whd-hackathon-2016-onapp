@@ -1,7 +1,7 @@
 [%- content_html=BLOCK -%]
-<h1>Hello world</h1>
+<h1>OnCP</h1>
 [% IF c.user_exists %]
-  <p>Logged in as '[% c.user.email %]'.</p>
+<p>Logged in as '[% c.user.email %]'.</p>
 [% END %]
 [%- END -%]
 [%- INCLUDE "_pretty_content.tt" title = "Hello world"  -%]
