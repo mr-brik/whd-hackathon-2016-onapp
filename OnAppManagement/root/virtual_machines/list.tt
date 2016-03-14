@@ -6,19 +6,31 @@
 <table>
  <tr>
    <th>Name</th>
+   <th>Status</th>
    <th>Location</th>
    <th>IP Address</th>
-   <th>Root Password</th>
+   <th>Password</th>
+   <th>CPUs</th>
+   <th>Disk</th>
+   <th>Memory</th>
+   <th>Remove</th>
  <tr>
+
 [%- FOREACH s IN servers -%]
 <tr>
-   <td>[%- s.server.label -%]</td>
-   <td>[%- s.server.template.location.label -%]</td>
-   <td>[%- s.server.ipv4_address -%]</td>
-   <td>[%- s.server.initial_root_password -%]</td>
+   <td>[%- s.server.label | html -%]</td>
+   <td>[%- s.server.status | html -%]</td>
+   <td>[%- s.server.template.location.label | html -%]</td>
+   <td>[%- s.server.ipv4_address | html -%]</td>
+   <td>[%- s.server.initial_root_password | html -%]</td>
+   <td>[%- s.server.cpus | html -%] core</td>
+   <td>[%- s.server.disk_size | html -%] GB</td>
+   <td>[%- s.server.memory_size | html -%] MB</td>
+   <td><a href="/virtualmachines/delete/[%- s.server.id | html -%]">Delete</a></td>
 </tr>
 [%- END -%]
 </table>
 
 [% END %]
 <p><a href="/virtualmachines/create">Create a virtual server</a></p>
+<p><a href="/logout">Log out</a></p>
