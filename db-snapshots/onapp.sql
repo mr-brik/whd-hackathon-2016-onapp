@@ -1,13 +1,13 @@
 PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
 CREATE TABLE location (
-  id INT PRIMARY KEY,
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
   label TEXT NOT NULL,
-  hypervisor_group_id INT NOT NULL UNIQUE
+  hypervisor_group_id INT NOT NULL
 );
-INSERT INTO "location" VALUES(NULL,'Estonia',4);
-INSERT INTO "location" VALUES(NULL,'France',10);
-INSERT INTO "location" VALUES(NULL,'Ukraine',7);
+INSERT INTO "location" VALUES(1,'Estonia',4);
+INSERT INTO "location" VALUES(2,'France',10);
+INSERT INTO "location" VALUES(3,'Ukraine',7);
 CREATE TABLE template (
   id INT PRIMARY KEY,
   label TEXT NOT NULL,
@@ -139,4 +139,5 @@ CREATE TABLE user_server_link (
 );
 DELETE FROM sqlite_sequence;
 INSERT INTO "sqlite_sequence" VALUES('user',7);
+INSERT INTO "sqlite_sequence" VALUES('location',3);
 COMMIT;

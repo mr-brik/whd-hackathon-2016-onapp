@@ -35,7 +35,7 @@ List logic
 
 sub list : Local : Args(0) {
   my ( $self, $c ) = @_;
-  $c->stash( servers => $c->user->user_server_links );
+  $c->stash( servers => [ $c->user->user_server_links->all ]);
   $c->stash( template => 'virtual_machines/list.tt' );
 }
 

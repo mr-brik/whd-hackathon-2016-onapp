@@ -1,2 +1,24 @@
-<h1>List Virtual Servers</h1>
+<h1>List Virtual Servers [%- IF c.user_exists -%](as [%- c.user.email | html -%])[%- END -%]</h1>
+[% IF servers.size == 0 %]
+<p>You have no Virtual servers. Why not create one?</p>
+[% ELSE %]
+<p>See below to manage your virtual servers:</p>
+<table>
+ <tr>
+   <th>Name</th>
+   <th>Location</th>
+   <th>IP Address</th>
+   <th>Root Password</th>
+ <tr>
+[%- FOREACH s IN servers -%]
+<tr>
+   <td>[%- s.server.label -%]</td>
+   <td>[%- s.server.template.location.label -%]</td>
+   <td>[%- s.server.ipv4_address -%]</td>
+   <td>[%- s.server.initial_root_password -%]</td>
+</tr>
+[%- END -%]
+</table>
+
+[% END %]
 <p><a href="/virtualmachines/create">Create a virtual server</a></p>

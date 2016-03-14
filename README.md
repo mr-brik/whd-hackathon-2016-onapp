@@ -4,7 +4,7 @@ WHD Hackathon 2016 - OnApp
 
 ## Objectives
 
-Create a user interface for management of onapp virtual_machine instances.
+Create a user interface for management of OnApp virtual_machine instances.
 
 ## Deployment
 
