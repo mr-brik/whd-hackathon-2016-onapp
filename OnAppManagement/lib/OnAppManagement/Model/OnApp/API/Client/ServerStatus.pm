@@ -8,7 +8,7 @@ sub get_status {
 
 	my $json = $self->call($link);
 	my $server_details = {
-		status => $json->{booted_type},
+		status => $json->{booted_type} eq 'true' ? "Live":"Building",
 		label => $json->{label},
 		cpus => $json->{cpus},
 		disk_size => $json->{total_disk_size},
