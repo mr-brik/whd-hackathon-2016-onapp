@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>[% title | html %]</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <!-- class="logo_colour", allows you to change the colour of the text -->
+        <h1><a href="/">On<span class="logo_colour">CP</span></a></h1>
+        <h2>Management for OnApp Instances</h2>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li class="selected"><a href="/">Home</a></li>
+          <li><a href="/login">Log In</a></li>
+          <li><a href="/virtualmachines">List Servers</a></li>
+          <li><a href="/virtualmachines/create">Get Servers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+    [% content_html %]
+    </div>
+    <div id="footer">
+      <p><a href="/">Home</a> | <a href="/virtualmachines/list">List Servers</a> | <a href="/virtualmachines/create">Get Servers</a>
+      <p><a href="/login">Log in</a> | <a href="/logout">Log out</a></p>
+    </div>
+  </div>
+</body>
+</html>

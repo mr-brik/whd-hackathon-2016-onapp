@@ -1,6 +1,5 @@
+[%- content_html=BLOCK -%]
 <h1>Create Virtual Servers</h1>
-
-<body>
 
 <form>
   Label:<br>
@@ -36,4 +35,5 @@
   <input type="submit" name="create" value="Create"><br>
   [% END %]
 </form>
-</body>
+[%- END -%]
+[%- INCLUDE "_pretty_content.tt" title = "Create Virtual Servers"  -%]

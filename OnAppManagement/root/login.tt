@@ -1,5 +1,5 @@
+[%- content_html=BLOCK -%]
 [% META title = 'Login' %]
-
 [% IF users.size == 0 %]
 <h2>No users configured.</h2>
 [% ELSE %]
@@ -23,3 +23,5 @@
   </table>
 </form>
 [% END %]
+[%- END -%]
+[%- INCLUDE "_pretty_content.tt" title = "Log in"  -%]

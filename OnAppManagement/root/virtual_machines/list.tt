@@ -1,3 +1,4 @@
+[%- content_html=BLOCK -%]
 <h1>List Virtual Servers [%- IF c.user_exists -%](as [%- c.user.email | html -%])[%- END -%]</h1>
 [% IF servers.size == 0 %]
 <p>You have no Virtual servers. Why not create one?</p>
@@ -32,5 +33,6 @@
 </table>
 
 [% END %]
-<p><a href="/virtualmachines/create">Create a virtual server</a></p>
-<p><a href="/logout">Log out</a></p>
+
+[%- END -%]
+[%- INCLUDE "_pretty_content.tt" title = "List Virtual Servers"  -%]
