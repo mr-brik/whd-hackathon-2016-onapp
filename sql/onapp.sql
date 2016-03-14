@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS location;
 CREATE TABLE location (
-  id INT PRIMARY KEY,
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
   label TEXT NOT NULL,
   hypervisor_group_id INT NOT NULL
 );

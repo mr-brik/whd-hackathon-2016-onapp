@@ -40,7 +40,8 @@ __PACKAGE__->table("location");
 
 =head2 id
 
-  data_type: 'int'
+  data_type: 'integer'
+  is_auto_increment: 1
   is_nullable: 0
 
 =head2 label
@@ -57,7 +58,7 @@ __PACKAGE__->table("location");
 
 __PACKAGE__->add_columns(
   "id",
-  { data_type => "int", is_nullable => 0 },
+  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
   "label",
   { data_type => "text", is_nullable => 0 },
   "hypervisor_group_id",
@@ -75,20 +76,6 @@ __PACKAGE__->add_columns(
 =cut
 
 __PACKAGE__->set_primary_key("id");
-
-=head1 UNIQUE CONSTRAINTS
-
-=head2 C<hypervisor_group_id_unique>
-
-=over 4
-
-=item * L</hypervisor_group_id>
-
-=back
-
-=cut
-
-__PACKAGE__->add_unique_constraint("hypervisor_group_id_unique", ["hypervisor_group_id"]);
 
 =head1 RELATIONS
 
@@ -108,8 +95,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-13 15:35:17
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:PI9uX1uBezyNkF8mrO+Uvg
+# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-14 12:35:52
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:OyBycPbDVEDgNtVUmzrVwg
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
