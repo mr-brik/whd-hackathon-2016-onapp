@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS location;
 CREATE TABLE location (
   id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
   label TEXT NOT NULL,
-  hypervisor_group_id INT NOT NULL
+  hypervisor_group_id INT NOT NULL UNIQUE
 );
 
 DROP TABLE IF EXISTS template;
@@ -20,7 +20,7 @@ CREATE TABLE template (
 DROP TABLE IF EXISTS server;
 CREATE TABLE server (
   id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-  onapp_id TEXT NOT NULL,
+  onapp_id TEXT NOT NULL UNIQUE,
   template_id INT NOT NULL,
   label TEXT NOT NULL,
   status TEXT NOT NULL DEFAULT 'building',
@@ -35,7 +35,7 @@ CREATE TABLE server (
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-  email TEXT NOT NULL
+  email TEXT NOT NULL UNIQUE
 );
 
 DROP TABLE IF EXISTS user_server_link;

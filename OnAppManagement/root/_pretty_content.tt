@@ -22,15 +22,15 @@
           <li class="selected"><a href="/">Home</a></li>
           <li><a href="/login">Log In</a></li>
           <li><a href="/virtualmachines">List Servers</a></li>
-          <li><a href="/virtualmachines/create">Get Servers</a></li>
+          <li><a href="/virtualmachines/create">Create Server</a></li>
         </ul>
       </div>
     </div>
     <div id="site_content">
-    [% content_html %]
+    [% content_html | remove("[^[:ascii:]]+") %]
     </div>
     <div id="footer">
-      <p><a href="/">Home</a> | <a href="/virtualmachines/list">List Servers</a> | <a href="/virtualmachines/create">Get Servers</a>
+      <p><a href="/">Home</a> | <a href="/virtualmachines/list">List Servers</a> | <a href="/virtualmachines/create">Create Servers</a>
       <p><a href="/login">Log in</a> | <a href="/logout">Log out</a></p>
     </div>
   </div>
